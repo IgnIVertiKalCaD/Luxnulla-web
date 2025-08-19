@@ -1,0 +1,22 @@
+:host {
+  display: block;
+
+  table {
+    inline-size: 100%;
+
+    tr {
+      block-size: 2.8125rem;
+    }
+
+    td {
+      &:first-child {
+        block-size: 2.8125rem;
+        inline-size: 1rem;
+      }
+    }
+  }
+
+  .viewport {
+    block-size: 40.625rem;
+  }
+}

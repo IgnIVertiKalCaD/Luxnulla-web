@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  align-items: center;
+
+  gap: 1em;
+
+  > div {
+    &:nth-child(1) {
+      flex: 0 0 20%;
+    }
+  }
+
+  .btn-container {
+    display: flex;
+    gap: calc(1em / 2);
+  }
+}

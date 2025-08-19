@@ -1,3 +1,4 @@
+import { provideAnimations } from "@angular/platform-browser/animations";
 import { provideEventPlugins } from "@taiga-ui/event-plugins";
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import {
@@ -11,13 +12,15 @@ import {
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptorsFromDi } from "@angular/common/http";
-import { ApiInterceptor } from "@/desktop/src/app/constructor/common/interceptors/api.interceptor";
-import { AuthInterceptor } from "@/desktop/src/app/constructor/common/interceptors/auth.interceptor";
-import { isBrowser } from '@/desktop/src/app/constructor/common/utils/ssr-helper';
+import { AuthInterceptor } from "./constructor/common/interceptors/auth.interceptor";
+import {ApiInterceptor} from './constructor/common/interceptors/api.interceptor';
+import {isBrowser} from './constructor/common/utils/ssr-helper';
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZonelessChangeDetection(),
+        provideAnimations(),
+        provideZonelessChangeDetection(),
     provideAnimationsAsync(),
     provideHttpClient(withInterceptorsFromDi(), withFetch()),
     provideBrowserGlobalErrorListeners(),
@@ -43,6 +46,7 @@ export const appConfig: ApplicationConfig = {
       useClass: AuthInterceptor,
       multi: true,
     },
-    provideEventPlugins()
-  ]
+    provideEventPlugins(),
+        provideEventPlugins()
+    ]
 };

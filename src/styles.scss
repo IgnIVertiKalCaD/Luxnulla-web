@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+[tuiIcons]:before, [tuiIcons]:after {
+  block-size: 0.8em;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
