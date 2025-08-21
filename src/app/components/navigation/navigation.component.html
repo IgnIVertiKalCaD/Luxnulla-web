@@ -1,121 +1,36 @@
-<header tuiNavigationHeader>
-  <button
-    title="Menu"
-    tuiIconButton
-    tuiNavigationDrawer
-    type="button"
-    [(open)]="open"
-  >
-    <tui-data-list>
-      <tui-opt-group
-        *ngFor="let group of drawer | keyvalue"
-        [label]="group.key"
-      >
-        <button
-          *ngFor="let item of group.value"
-          tuiOption
-          type="button"
-          (click)="open = false"
-        >
-          <img
-            alt="icon"
-            [src]="item.icon"
-          />
-          {{ item.name }}
-        </button>
-      </tui-opt-group>
-    </tui-data-list>
-  </button>
+<header tuiNavigationHeader #header>
+  <img ngSrc="assets/logo.webp" class="logo" alt="logotype" width="32" height="32"/>
+
   <span tuiNavigationLogo>
-        <tui-icon icon="@tui.home" />
-        <span tuiFade>A very very long product name</span>
-        <tui-badge>Test</tui-badge>
-    </span>
-  <span tuiNavigationSegments>
-        <button
-          appearance="secondary-grayscale"
-          tuiButton
-          type="button"
-        >
-            Link 1
-        </button>
-        <button
-          appearance="secondary-grayscale"
-          tuiButton
-          type="button"
-        >
-            Link 2
-        </button>
-        <button
-          appearance="secondary-grayscale"
-          tuiButton
-          tuiChevron
-          tuiDropdownOpen
-          type="button"
-          [tuiDropdown]="products"
-        >
-            <span
-              [style.overflow]="'hidden'"
-              [style.text-overflow]="'ellipsis'"
-            >
-                A very very long project
-            </span>
-            <ng-template #products>
-                <tui-data-list size="s">
-                    <button
-                      tuiOption
-                      type="button"
-                    >
-                        A very very long project
-                        <tui-icon
-                          icon="@tui.check"
-                          [style.font-size.em]="1"
-                          [style.margin-left.rem]="0.5"
-                        />
-                    </button>
-                    <button
-                      tuiOption
-                      type="button"
-                    >
-                        Something else
-                    </button>
-                </tui-data-list>
-            </ng-template>
-        </button>
-    </span>
-  <hr />
-  <button
-    appearance="secondary-grayscale"
-    iconStart="@tui.plus"
-    tuiButton
-    type="button"
-  >
-    Create
-  </button>
+	        <span tuiFade>Luxnulla</span>
+	        <tui-badge>v0.1</tui-badge>
+  </span>
+
+  <hr/>
+
   <button
     iconStart="@tui.bell"
     tuiIconButton
     type="button"
   >
     Notifications
-    <tui-badge-notification />
+    <tui-badge-notification/>
   </button>
-  <button
-    iconStart="@tui.ellipsis"
-    tuiIconButton
-    type="button"
-  >
-    More
-  </button>
-  <tui-avatar src="AI" />
 </header>
 
 <div [style.display]="'flex'">
   <aside
+    [style.height]="`calc(100vh - 48px)`"
     [tuiNavigationAside]="expanded()"
   >
     <header>
-
+      <button
+        iconStart="@tui.home"
+        tuiAsideItem
+        type="button"
+      >
+        <span tuiFade>Dashboard</span>
+      </button>
     </header>
 
     <tui-aside-group>
@@ -149,10 +64,31 @@
         </ng-template>
       </button>
     </tui-aside-group>
+    <button
+      automation-id="hint"
+      iconStart="@tui.heart"
+      tuiAsideItem
+      type="button"
+    >
+      <span tuiFade>By default ellipsis is used but you can use fade too</span>
+    </button>
 
-    <hr />
-
+    <hr/>
+    <button
+      iconStart="@tui.plus"
+      tuiAsideItem
+      type="button"
+    >
+      Add
+    </button>
     <footer>
+      <button
+        iconStart="@tui.star"
+        tuiAsideItem
+        type="button"
+      >
+        Favorites
+      </button>
       <button
         tuiAsideItem
         type="button"
@@ -164,7 +100,21 @@
     </footer>
   </aside>
 
-  <main tuiNavigationMain>
+  <main>
+    <nav
+      compact
+      tuiSubheader
+      [style.position]="'sticky'"
+    >
+      <tui-tabs>
+        <a tuiTab>Default view</a>
+        <a tuiTab>Contributors</a>
+        <a tuiTab>Code</a>
+      </tui-tabs>
+    </nav>
+
+    <div>
       <ng-content/>
+    </div>
   </main>
 </div>

@@ -1,0 +1,9 @@
+:host {
+  display: block;
+
+  flex: 1;
+
+  tui-scrollbar, .viewport {
+    height: 100%;
+  }
+}

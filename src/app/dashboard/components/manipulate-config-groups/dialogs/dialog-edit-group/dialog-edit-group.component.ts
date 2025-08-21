@@ -31,8 +31,6 @@ import {TuiForm} from '@taiga-ui/layout';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DialogEditGroupComponent {
-  private readonly alerts = inject(TuiAlertService);
-
   protected readonly form = new FormGroup({
     name: new FormControl('',),
     payload: new FormControl(''),

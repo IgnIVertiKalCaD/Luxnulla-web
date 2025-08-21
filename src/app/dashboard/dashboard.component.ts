@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {ConfigsTableComponent} from './components/configs-table/configs-table.component';
+import {ConfigsListComponent} from './components/configs-list/configs-list.component';
 import {ManipulateConfigGroupsComponent} from './components/manipulate-config-groups/manipulate-config-groups.component';
 
 @Component({
   selector: 'app-desktop-dashboard',
-  imports: [ConfigsTableComponent, ManipulateConfigGroupsComponent],
+  imports: [ConfigsListComponent, ManipulateConfigGroupsComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

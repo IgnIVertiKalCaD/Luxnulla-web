@@ -1,3 +1,36 @@
 :host {
   display: block;
+
+  .logo {
+    border-radius: 50%;
+  }
+
+  main {
+    transition-property: max-width;
+    transition-duration: var(--tui-duration, .3s);
+    transition-timing-function: ease-in-out;
+    position: relative;
+
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+
+    gap: 1rem;
+
+    border-block-start: 0;
+    isolation: isolate;
+
+    width: 100%;
+
+    > nav {
+      width: 100%;
+    }
+
+
+    > div {
+      height: 100%;
+      width: 100%;
+    }
+  }
 }
+

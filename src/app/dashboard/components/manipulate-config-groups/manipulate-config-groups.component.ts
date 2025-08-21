@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject} from '@an
 import {TuiButton, tuiDialog, TuiDropdownService} from '@taiga-ui/core';
 import {DialogAddGroupComponent} from './dialogs/dialog-add-group/dialog-add-group.component';
 import {GroupsSelectComponent} from './groups-select/groups-select.component';
+import {DialogEditGroupComponent} from './dialogs/dialog-edit-group/dialog-edit-group.component';
 
 @Component({
   selector: 'app-manipulate-config-groups',
@@ -19,11 +20,17 @@ export class ManipulateConfigGroupsComponent {
     label: 'Add group',
   });
 
+  private readonly dialogEditGroup = tuiDialog(DialogEditGroupComponent, {
+    dismissible: true,
+    label: 'Edit group',
+  });
+
+
   protected showDialogAddGroup(): void {
     this.dialogAddGroup().subscribe();
   }
 
   protected showDialogEditGroup(): void {
-    this.dialogAddGroup().subscribe();
+    this.dialogEditGroup().subscribe();
   }
 }
